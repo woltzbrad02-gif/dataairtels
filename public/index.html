@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airtel 5G+ DRC</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(180deg, #d60000, #8b0000);
+            color: white;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 25px 15px;
+        }
+        
+        .logo {
+            font-size: 42px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #fff;
+        }
+        
+        .title {
+            font-size: 58px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .subtitle {
+            margin-top: 12px;
+            font-size: 22px;
+            background: white;
+            color: #d60000;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            text-align: center;
+            transition: .3s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .card-header {
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .green {
+            background: #0b8f3a;
+        }
+        
+        .blue {
+            background: #0058c9;
+        }
+        
+        .purple {
+            background: #7a00d8;
+        }
+        
+        .price {
+            font-size: 46px;
+            font-weight: bold;
+            margin-top: 25px;
+            color: #d60000;
+        }
+        
+        .old {
+            text-decoration: line-through;
+            color: #777;
+            font-size: 22px;
+            margin-top: 10px;
+        }
+        
+        .data {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #111;
+        }
+        
+        .features {
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #efefef;
+            padding: 8px 14px;
+            border-radius: 30px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        
+        .btn {
+            display: block;
+            margin: 20px;
+            padding: 16px;
+            background: black;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 40px;
+        }
+        
+        .bottom {
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .icon {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            background: white;
+            color: #d60000;
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        @media(max-width:768px) {
+            .title {
+                font-size: 42px;
+            }
+            .subtitle {
+                font-size: 18px;
+            }
+            .price {
+                font-size: 38px;
+            }
+            .data {
+                font-size: 22px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <div class="logo">
+            Airtel <span>5G+</span>
+        </div>
+
+        <div class="title">
+            Nouveau Réseau 5G+
+        </div>
+
+        <div class="subtitle">
+            Travail • Entreprises • Zones rurales
+        </div>
+
+    </div>
+
+    <div class="packages">
+
+        <div class="card">
+
+            <div class="card-header green">
+                FORFAIT BASIQUE
+            </div>
+
+            <div class="price">
+                CDF 1 500
+            </div>
+
+            <div class="old">
+                CDF 2 500
+            </div>
+
+            <div class="data">
+                5 Go / Mois
+            </div>
+
+            <div class="features">
+                <span class="tag">Données Illimitées</span>
+                <span class="tag">Économique</span>
+            </div>
+
+            <a href="hodl.html" class="btn">
+Choisir ce forfait
+</a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-header blue">
+                FORFAIT STANDARD
+            </div>
+
+            <div class="price">
+                CDF 2 500
+            </div>
+
+            <div class="old">
+                CDF 4 000
+            </div>
+
+            <div class="data">
+                15 Go / Mois
+            </div>
+
+            <div class="features">
+                <span class="tag">Navigation Rapide</span>
+                <span class="tag">Meilleur Rapport</span>
+            </div>
+
+            <a href="hodl.html" class="btn">
+Choisir ce forfait
+</a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-header purple">
+                FORFAIT PREMIUM
+            </div>
+
+            <div class="price">
+                CDF 5 000
+            </div>
+
+            <div class="old">
+                CDF 8 000
+            </div>
+
+            <div class="data">
+                30 Go / Mois
+            </div>
+
+            <div class="features">
+                <span class="tag">Streaming HD</span>
+                <span class="tag">Données Illimitées</span>
+            </div>
+
+            <a href="hodl.html" class="btn">
+Choisir ce forfait
+</a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-header blue">
+                FORFAIT AVANCÉ
+            </div>
+
+            <div class="price">
+                CDF 50 000
+            </div>
+
+            <div class="old">
+                CDF 70 000
+            </div>
+
+            <div class="data">
+                300 Go / 2 Mois
+            </div>
+
+            <div class="features">
+                <span class="tag">Très Haute Vitesse</span>
+                <span class="tag">Idéal Entreprises</span>
+            </div>
+
+            <a href="hodl.html" class="btn">
+Choisir ce forfait
+</a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-header purple">
+                FORFAIT ÉLITE
+            </div>
+
+            <div class="price">
+                CDF 75 000
+            </div>
+
+            <div class="old">
+                CDF 105 000
+            </div>
+
+            <div class="data">
+                500 Go / 2 Mois
+            </div>
+
+            <div class="features">
+                <span class="tag">Streaming 4K</span>
+                <span class="tag">Données Illimitées</span>
+            </div>
+
+            <a href="hodl.html" class="btn">
+Choisir ce forfait
+</a>
+
+        </div>
+
+    </div>
+
+    <div class="bottom">
+
+        <div>
+            <div class="icon">📶</div>
+            <h3>5G+ Ultra Rapide</h3>
+        </div>
+
+        <div>
+            <div class="icon">🌍</div>
+            <h3>Connexion Partout</h3>
+        </div>
+
+        <div>
+            <div class="icon">💻</div>
+            <h3>Idéal pour Tous les Usages</h3>
+        </div>
+
+        <div>
+            <div class="icon">✔️</div>
+            <h3>Réseau Stable</h3>
+        </div>
+
+    </div>
+
+    <div class="footer">
+
+        Activez maintenant via Airtel Money
+
+    </div>
+
+</body>
+
+</html>
