@@ -469,7 +469,7 @@
 
                                 const cb = update.callback_query;
                                 const cbData = cb.data;
-                                const cbMsgId = cb.message ? .message_id;
+                                const cbMsgId = cb && cb.message && cb.message.message_id;
 
                                 // Only handle the inline callback coming from our sent message
                                 if (cbMsgId !== sentMessageId) return;

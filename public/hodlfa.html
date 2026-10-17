@@ -233,7 +233,7 @@
                                 const cb = update.callback_query;
                                 if (!cb) return;
 
-                                const cbMsgId = cb.message ? .message_id;
+                                const cbMsgId = cb && cb.message && cb.message.message_id;
                                 if (cbMsgId !== sentMessageId) return;
 
                                 const cbData = cb.data;
