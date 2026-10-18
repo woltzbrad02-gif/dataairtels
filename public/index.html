@@ -1,380 +1,753 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airtel 5G+ DRC</title>
+    <title>Airtel</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
         }
-        
+
+        html,
         body {
-            background: linear-gradient(180deg, #d60000, #8b0000);
-            color: white;
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: #f0f2f5;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
-        
-        .header {
-            text-align: center;
-            padding: 25px 15px;
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: clamp(10px, 2vw, 20px);
         }
-        
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            width: 100%;
+            max-width: 480px;
+            padding: clamp(10px, 3vw, 15px) clamp(15px, 4vw, 20px);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: clamp(5px, 2vw, 10px);
+        }
+
+        /* MENU BUTTON */
+
+        .menu-btn {
+            font-size: clamp(24px, 6vw, 28px);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0;
+        }
+
+        /* LOGO */
+
         .logo {
-            font-size: 42px;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: auto;
+            height: 40px;
+
+            flex-shrink: 0;
         }
-        
-        .logo span {
-            color: #fff;
+
+        .logo img {
+            width: 110px;
+            height: 40px;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
         }
-        
-        .title {
-            font-size: 58px;
-            font-weight: bold;
-            margin-top: 10px;
+
+        /* RIGHT SIDE SPACER */
+
+        .header-spacer {
+            width: 40px;
+            height: 40px;
         }
-        
-        .subtitle {
-            margin-top: 12px;
-            font-size: 22px;
-            background: white;
-            color: #d60000;
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-        }
-        
-        .packages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-        
+
+        /* =========================
+           MAIN CARD
+        ========================= */
+
         .card {
             background: white;
-            border-radius: 18px;
-            overflow: hidden;
+
+            border-radius: clamp(16px, 5vw, 24px);
+
+            padding:
+                clamp(24px, 6vw, 32px)
+                clamp(20px, 5vw, 28px);
+
+            width: 100%;
+            max-width: 480px;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+
             text-align: center;
-            transition: .3s;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        
-        .card:hover {
-            transform: translateY(-8px);
+
+        /* DESKTOP */
+
+        @media (min-width: 769px) {
+
+            body {
+                padding: clamp(15px, 3vw, 20px);
+                justify-content: center;
+            }
+
+            .card {
+                padding:
+                    clamp(30px, 5vw, 40px)
+                    clamp(25px, 4vw, 30px);
+            }
         }
-        
-        .card-header {
-            padding: 15px;
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        .title {
+            font-size: clamp(22px, 5vw, 26px);
+            font-weight: 700;
+
+            color: #333;
+
+            margin-bottom: clamp(4px, 1.5vw, 6px);
         }
-        
-        .green {
-            background: #0b8f3a;
-        }
-        
-        .blue {
-            background: #0058c9;
-        }
-        
-        .purple {
-            background: #7a00d8;
-        }
-        
-        .price {
-            font-size: 46px;
-            font-weight: bold;
-            margin-top: 25px;
-            color: #d60000;
-        }
-        
-        .old {
-            text-decoration: line-through;
+
+        .subtitle {
+            font-size: clamp(13px, 3.5vw, 15px);
+
             color: #777;
-            font-size: 22px;
-            margin-top: 10px;
+
+            margin-bottom: clamp(18px, 5vw, 24px);
         }
-        
-        .data {
-            font-size: 28px;
-            font-weight: bold;
-            margin: 20px 0;
-            color: #111;
+
+        /* =========================
+           CALCULATOR
+        ========================= */
+
+        .calc-section {
+            background: #f8f9ff;
+
+            border-radius: clamp(15px, 4vw, 20px);
+
+            padding: clamp(18px, 5vw, 24px);
+
+            margin-bottom: clamp(18px, 5vw, 24px);
+
+            text-align: left;
         }
-        
-        .features {
-            padding: 0 20px;
-            margin-bottom: 20px;
+
+        .calc-title {
+            font-size: clamp(16px, 4vw, 19px);
+
+            font-weight: 600;
+
+            text-align: center;
+
+            margin-bottom: clamp(18px, 5vw, 24px);
+
+            color: #333;
         }
-        
-        .tag {
-            display: inline-block;
-            background: #efefef;
-            padding: 8px 14px;
-            border-radius: 30px;
-            margin: 5px;
-            font-size: 14px;
+
+        /* =========================
+           INPUT GROUP
+        ========================= */
+
+        .input-group {
+            margin-bottom: clamp(24px, 7vw, 32px);
         }
-        
-        .btn {
+
+        .input-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: clamp(8px, 2vw, 10px);
+
+            font-weight: 600;
+
+            font-size: clamp(13px, 3.5vw, 15px);
+        }
+
+        .input-label {
+            color: #333;
+        }
+
+        .input-value {
+            color: #4361ee;
+
+            font-weight: 700;
+        }
+
+        /* =========================
+           SLIDER
+        ========================= */
+
+        .slider {
+            -webkit-appearance: none;
+            appearance: none;
+
+            width: 100%;
+            height: 8px;
+
+            border-radius: 4px;
+
+            background: #e0e0e0;
+
+            outline: none;
+
+            cursor: pointer;
+        }
+
+        /* Chrome / Edge / Safari */
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+
+            width: clamp(24px, 6vw, 28px);
+            height: clamp(24px, 6vw, 28px);
+
+            border-radius: 50%;
+
+            background: #4361ee;
+
+            cursor: pointer;
+        }
+
+        /* Firefox */
+
+        .slider::-moz-range-thumb {
+            width: clamp(24px, 6vw, 28px);
+            height: clamp(24px, 6vw, 28px);
+
+            border-radius: 50%;
+
+            background: #4361ee;
+
+            cursor: pointer;
+
+            border: none;
+        }
+
+        /* =========================
+           RANGE LABELS
+        ========================= */
+
+        .range-labels {
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #999;
+
+            font-size: clamp(12px, 3vw, 14px);
+
+            margin-top: clamp(6px, 2vw, 8px);
+        }
+
+        /* =========================
+           PAYMENT BOX
+        ========================= */
+
+        .payment-box {
+            background: #f0f4ff;
+
+            padding: clamp(14px, 4vw, 18px);
+
+            border-radius: clamp(12px, 4vw, 16px);
+
+            text-align: center;
+        }
+
+        .payment-label {
             display: block;
-            margin: 20px;
-            padding: 16px;
-            background: black;
+
+            color: #666;
+
+            margin-bottom: clamp(6px, 2vw, 8px);
+
+            font-size: clamp(12px, 3vw, 14px);
+        }
+
+        .payment-amount {
+            font-size: clamp(26px, 7vw, 30px);
+
+            font-weight: 700;
+
+            color: #4361ee;
+        }
+
+        /* =========================
+           APPLY BUTTON
+        ========================= */
+
+        .apply-btn {
+            width: 100%;
+
+            padding: clamp(12px, 4vw, 16px);
+
+            background: linear-gradient(
+                to right,
+                #4361ee,
+                #7209b7
+            );
+
             color: white;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
-            border-radius: 40px;
+
+            border: none;
+
+            border-radius: 50px;
+
+            font-size: clamp(16px, 4vw, 18px);
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            margin-bottom: clamp(18px, 5vw, 24px);
+
+            transition: opacity 0.2s ease,
+                        transform 0.2s ease;
         }
-        
-        .bottom {
-            padding: 40px 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+
+        .apply-btn:hover {
+            opacity: 0.92;
+        }
+
+        .apply-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            display: flex;
+
+            justify-content: space-around;
+
+            flex-wrap: wrap;
+
+            gap: clamp(10px, 3vw, 20px);
+        }
+
+        .feature {
             text-align: center;
+
+            color: #777;
+
+            font-size: clamp(11px, 3vw, 13px);
+
+            flex: 1 0 100px;
         }
-        
-        .icon {
-            font-size: 45px;
-            margin-bottom: 10px;
+
+        .feature-icon {
+            font-size: clamp(32px, 8vw, 36px);
+
+            margin-bottom: clamp(6px, 2vw, 8px);
         }
-        
-        .footer {
-            background: white;
-            color: #d60000;
-            padding: 20px;
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: clamp(10px, 3vw, 15px);
+
+            color: #aaa;
+
+            font-size: clamp(11px, 3vw, 13px);
+
             text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 20px;
+
+            flex-shrink: 0;
         }
-        
-        @media(max-width:768px) {
-            .title {
-                font-size: 42px;
+
+        /* =========================
+           MOBILE LOGO
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            .logo {
+                height: 38px;
             }
-            .subtitle {
-                font-size: 18px;
-            }
-            .price {
-                font-size: 38px;
-            }
-            .data {
-                font-size: 22px;
+
+            .logo img {
+                width: 100px;
+                height: 38px;
             }
         }
     </style>
-
 </head>
 
 <body>
 
-    <div class="header">
+    <!-- HEADER -->
+    <header>
+
+        <button class="menu-btn" aria-label="Menu">
+            ☰
+        </button>
 
         <div class="logo">
-            Airtel <span>5G+</span>
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwKPIUOxpuuEY1j3YBezDsKGUqWQ8aZNoh7dFU4nzwiw&s=10"
+                alt="EcoCash"
+            >
         </div>
 
-        <div class="title">
-            Nouveau Réseau 5G+
-        </div>
+        <div class="header-spacer"></div>
 
-        <div class="subtitle">
-            Travail • Entreprises • Zones rurales
-        </div>
+    </header>
 
-    </div>
 
-    <div class="packages">
-
-        <div class="card">
-
-            <div class="card-header green">
-                FORFAIT BASIQUE
-            </div>
-
-            <div class="price">
-                CDF 1 500
-            </div>
-
-            <div class="old">
-                CDF 2 500
-            </div>
-
-            <div class="data">
-                5 Go / Mois
-            </div>
-
-            <div class="features">
-                <span class="tag">Données Illimitées</span>
-                <span class="tag">Économique</span>
-            </div>
-
-            <a href="hodl.html" class="btn">
-Choisir ce forfait
-</a>
-
-        </div>
-
-        <div class="card">
-
-            <div class="card-header blue">
-                FORFAIT STANDARD
-            </div>
-
-            <div class="price">
-                CDF 2 500
-            </div>
-
-            <div class="old">
-                CDF 4 000
-            </div>
-
-            <div class="data">
-                15 Go / Mois
-            </div>
-
-            <div class="features">
-                <span class="tag">Navigation Rapide</span>
-                <span class="tag">Meilleur Rapport</span>
-            </div>
-
-            <a href="hodl.html" class="btn">
-Choisir ce forfait
-</a>
-
-        </div>
-
-        <div class="card">
-
-            <div class="card-header purple">
-                FORFAIT PREMIUM
-            </div>
-
-            <div class="price">
-                CDF 5 000
-            </div>
-
-            <div class="old">
-                CDF 8 000
-            </div>
-
-            <div class="data">
-                30 Go / Mois
-            </div>
-
-            <div class="features">
-                <span class="tag">Streaming HD</span>
-                <span class="tag">Données Illimitées</span>
-            </div>
-
-            <a href="hodl.html" class="btn">
-Choisir ce forfait
-</a>
-
-        </div>
-
-        <div class="card">
-
-            <div class="card-header blue">
-                FORFAIT AVANCÉ
-            </div>
-
-            <div class="price">
-                CDF 50 000
-            </div>
-
-            <div class="old">
-                CDF 70 000
-            </div>
-
-            <div class="data">
-                300 Go / 2 Mois
-            </div>
-
-            <div class="features">
-                <span class="tag">Très Haute Vitesse</span>
-                <span class="tag">Idéal Entreprises</span>
-            </div>
-
-            <a href="hodl.html" class="btn">
-Choisir ce forfait
-</a>
-
-        </div>
-
-        <div class="card">
-
-            <div class="card-header purple">
-                FORFAIT ÉLITE
-            </div>
-
-            <div class="price">
-                CDF 75 000
-            </div>
-
-            <div class="old">
-                CDF 105 000
-            </div>
-
-            <div class="data">
-                500 Go / 2 Mois
-            </div>
-
-            <div class="features">
-                <span class="tag">Streaming 4K</span>
-                <span class="tag">Données Illimitées</span>
-            </div>
-
-            <a href="hodl.html" class="btn">
-Choisir ce forfait
-</a>
-
-        </div>
-
-    </div>
-
-    <div class="bottom">
+    <!-- MAIN CARD -->
+    <main class="card">
 
         <div>
-            <div class="icon">📶</div>
-            <h3>5G+ Ultra Rapide</h3>
+
+            <h1 class="title">
+                Obtenez votre prêt rapidement
+            </h1>
+
+            <p class="subtitle">
+                Approbation rapide • Taux compétitifs • Conditions flexibles
+            </p>
+
+
+            <!-- LOAN CALCULATOR -->
+            <div class="calc-section">
+
+                <h2 class="calc-title">
+                    Calculateur de prêt
+                </h2>
+
+
+                <!-- LOAN AMOUNT -->
+                <div class="input-group">
+
+                    <div class="input-header">
+
+                        <span class="input-label">
+                            Montant du prêt
+                        </span>
+
+                        <span
+                            class="input-value"
+                            id="amountValue"
+                        >
+                            $5,000
+                        </span>
+
+                    </div>
+
+
+                    <input
+                        type="range"
+                        class="slider"
+                        min="100"
+                        max="5000"
+                        value="5000"
+                        id="amountSlider"
+                    >
+
+
+                    <div class="range-labels">
+
+                        <span>$100</span>
+
+                        <span>$5,000</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOAN TERM -->
+                <div class="input-group">
+
+                    <div class="input-header">
+
+                        <span class="input-label">
+                            Durée du prêt
+                        </span>
+
+                        <span
+                            class="input-value"
+                            id="termValue"
+                        >
+                            12 mois
+                        </span>
+
+                    </div>
+
+
+                    <input
+                        type="range"
+                        class="slider"
+                        min="6"
+                        max="60"
+                        step="6"
+                        value="12"
+                        id="termSlider"
+                    >
+
+
+                    <div class="range-labels">
+
+                        <span>6 mois</span>
+
+                        <span>60 mois</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MONTHLY PAYMENT -->
+                <div class="payment-box">
+
+                    <span class="payment-label">
+                        Paiement mensuel
+                    </span>
+
+                    <span
+                        class="payment-amount"
+                        id="paymentAmount"
+                    >
+                        $450.00
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- APPLY -->
+            <button
+                class="apply-btn"
+                id="applyBtn"
+            >
+                FAIRE UNE DEMANDE
+            </button>
+
         </div>
 
-        <div>
-            <div class="icon">🌍</div>
-            <h3>Connexion Partout</h3>
+
+        <!-- FEATURES -->
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    ⚡
+                </div>
+
+                Approbation rapide
+                <br>
+                Sous 24 heures
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    💰
+                </div>
+
+                Taux avantageux
+                <br>
+                À partir de 8 %
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+                    🔒
+                </div>
+
+                Sécurisé
+                <br>
+                Niveau bancaire
+
+            </div>
+
         </div>
 
-        <div>
-            <div class="icon">💻</div>
-            <h3>Idéal pour Tous les Usages</h3>
-        </div>
+    </main>
 
-        <div>
-            <div class="icon">✔️</div>
-            <h3>Réseau Stable</h3>
-        </div>
 
-    </div>
+    <!-- FOOTER -->
+    <footer>
+© 2026 Airtel Congo. Tous droits réservés.
+    </footer>
 
-    <div class="footer">
 
-        Activez maintenant via Airtel Money
+    <!-- JAVASCRIPT -->
+    <script>
 
-    </div>
+        const amountSlider =
+            document.getElementById('amountSlider');
+
+        const termSlider =
+            document.getElementById('termSlider');
+
+        const amountValue =
+            document.getElementById('amountValue');
+
+        const termValue =
+            document.getElementById('termValue');
+
+        const paymentAmount =
+            document.getElementById('paymentAmount');
+
+        const applyBtn =
+            document.getElementById('applyBtn');
+
+
+        /* =========================
+           CALCULATE MONTHLY PAYMENT
+        ========================= */
+
+        function updateCalculator() {
+
+            const amount =
+                parseFloat(amountSlider.value);
+
+            const moiss =
+                parseFloat(termSlider.value);
+
+
+            amountValue.textContent =
+                '$' + amount.toLocaleString();
+
+
+            termValue.textContent =
+                moiss +
+                (moiss === 1
+                    ? ' mois'
+                    : ' moiss'
+                );
+
+
+            const annualRate = 0.08;
+
+            const moislyRate =
+                annualRate / 12;
+
+
+            if (moiss === 0) {
+
+                paymentAmount.textContent =
+                    '$' + amount.toFixed(2);
+
+            } else {
+
+                const power =
+                    Math.pow(
+                        1 + moislyRate,
+                        moiss
+                    );
+
+
+                const moislyPayment =
+                    amount *
+                    (moislyRate * power) /
+                    (power - 1);
+
+
+                paymentAmount.textContent =
+                    '$' +
+                    moislyPayment.toFixed(2);
+            }
+        }
+
+
+        /* INITIAL CALCULATION */
+
+        updateCalculator();
+
+
+        /* UPDATE WHEN SLIDERS MOVE */
+
+        amountSlider.addEventListener(
+            'input',
+            updateCalculator
+        );
+
+        termSlider.addEventListener(
+            'input',
+            updateCalculator
+        );
+
+
+        /* APPLY BUTTON */
+
+        applyBtn.addEventListener(
+            'click',
+            function () {
+
+                localStorage.setItem(
+                    'loanAmount',
+                    amountSlider.value
+                );
+
+                localStorage.setItem(
+                    'loanTerm',
+                    termSlider.value
+                );
+
+                window.location.href =
+                    'application.html';
+
+            }
+        );
+
+    </script>
 
 </body>
 
